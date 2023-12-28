@@ -3,7 +3,7 @@
   <style>
         body {
             background-color: #e84242;
-      asdadada
+    
          
         }
         .baslik {
