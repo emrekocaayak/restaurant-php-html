@@ -258,6 +258,9 @@
                     </p>
                     <p class="restaurant-address">
                         <i class="fa-solid fa-location-dot"></i> Adres: <?php echo $restaurant['adres']; ?>
+                        <?php if($restaurant['cocuk_parki']== 1 )  : ?>
+      <p><span class="text-lg">Çocuk Parkı Var </span></p>
+      <?php endif ; ?>
                     </p>
                 </div>
             </div>
@@ -281,9 +284,13 @@
                     </div>
                 <?php } ?>
             </div><br><br>
+            <?php if(isset($_SESSION['id'])) { ?>
             <button type="submit" class="siparis-yorum" name="siparis">Sipariş Et</button>
+            <input type="hidden" name="restaurant_id" value="<?php echo $id ?>">
+            <?php } ?>
             <br><br>
         </form>
+        
         <?php if(isset($_SESSION['id']) && $_SESSION['id'] != "") { ?>
     <form method="post" class="user-comment-form">
         <div class="flex">
@@ -297,7 +304,7 @@
                     <option value="1">1</option>
                 </select>
             </div>
-            <textarea name="yorum"><?php if(sizeof($yorumlar) > 0) echo $yorumlar[array_search($_SESSION['id'], array_column($yorumlar, 'kullanici_id'))]['yorum']; ?></textarea>
+            <textarea name="yorum"></textarea>
         </div>
         
         <button class="siparis-yorum" name="yap">Yorum yap</button>

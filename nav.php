@@ -105,7 +105,7 @@
     .searchbar input{
    margin-left: 2%;
   
-width: 79%;
+width:60%;
 }
 .searchbar
 {
@@ -128,14 +128,17 @@ width: 79%;
 .ara {
   border-radius: 24px;
   background-color: #34e0a1;
-  width: 40px;
+  width:96px;
   height: 30px;
   margin-left: 100px;
-}
+  text-align: left;
+ 
 .ara:hover{
 background-color: #80ffd0;
   
 }
+
+
 </style>    
 
 
@@ -156,9 +159,13 @@ background-color: #80ffd0;
   <form action="ara.php">
   <div class="searchbar">
     
-    <input type="text" name="q" placeholder="Restoran ara..." spellcheck="false" required>
-    <button class="ara">Ara</i></button>
+    <input type="text" name="q" placeholder="Restoran ara..." required >
     
+    <button class="ara">Ara
+    <input id="cocukParki" type="checkbox" name="cocukParki" class="jojik" value="1">
+    </button>
+  
+   
 </div>
 
     </form>
@@ -174,6 +181,7 @@ background-color: #80ffd0;
           
             <a href="yonetimEkle.php">Restoran Ekle</a>
             <a href="yonetimMenu.php">Menü Ekle</a>
+            <a href="yonetim.php">Rezervasyonlar</a>
           
 
   
@@ -193,6 +201,7 @@ background-color: #80ffd0;
   <a href="admin.php">Restoran Ekle</a> 
           <a href="adminRest.php">Restoranlar Listesi</a>
           <a href="adminUser.php">Üyeler Listesi</a>
+         
           
       
       </div></div>
@@ -203,8 +212,9 @@ background-color: #80ffd0;
 </div>
 
 <div class="buttons">
+    
         <button>
-        <i class="fa-solid fa-wallet"></i></i>
+        <?php echo $kullanici['cuzdan'] ?> ₺  <i class="fa-solid fa-wallet"></i></i>
         </button>
         <div class="dropdown">
         <button class="dropdown-btn">

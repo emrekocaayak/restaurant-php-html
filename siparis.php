@@ -9,6 +9,7 @@
   }
 
   $menuler = $_POST['menu'];
+  $restaurant_id = $_POST['restaurant_id'];
   $menuisimleri = implode(',', $menuler);
   setcookie("menu",$menuisimleri,time()+(60*60*12));
   $islem = $db->query("SELECT * FROM menuler WHERE menu_id IN ($menuisimleri)")->fetchAll();
@@ -85,16 +86,23 @@
     </style>
   </head>
   <body>
+  
     <div class="container">
+    
       <p class="isim">Sayın: <?php echo $user['kullanici_adi'] ?></p>
-      <p class="tutar">Toplam tutar: <?php echo $toplam ; ?>TL</p> 
+      <p class="tutar">Toplam tutar: <?php echo $toplam ; ?>TL</p>
+      <?php if($user['cuzdan'] >= $toplam) { ?> 
       <form action="siparisOnay.php" method="post">
+      <input type="hidden" name="restaurant_id" value="<?php echo $restaurant_id ?>">
         <input class="date-input" type="datetime-local" name="gun">
         <div class="button-container">
           <button class="submit-button" name="onayla">Siparişi Onayla</button>
           <a class="cancel-button" href="anasayfa.php">İptal</a>
         </div>
       </form>
+      <?php } else { ?>
+          <?php echo $toplam - $user['cuzdan'] ?> TL Eksik. Lütfen bakiye yükleyiniz.
+        <?php } ?>
     </div>
   </body>
 </html>

@@ -86,8 +86,11 @@
           if(!isset($_GET['q']) || empty($_GET['q']))
             return;
 
+            
+          $cocukParki = isset($_GET['cocukParki']) ? "AND cocuk_parki = 1" : "";
           $q = $_GET['q'];
           $resturantlar = $db->query("SELECT * FROM restaurant WHERE isim LIKE '%$q%'");
+          $resturantlar = $db->query("SELECT * FROM restaurant WHERE isim LIKE '%$q%'". $cocukParki);
         ?>
         <?php if($resturantlar->rowCount() == 0) { ?>
           <p>Aradığınız restoran bulunamadı.</p>
