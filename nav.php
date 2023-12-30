@@ -162,7 +162,7 @@ background-color: #80ffd0;
     <input type="text" name="q" placeholder="Restoran ara..." required >
     
     <button class="ara">Ara
-    <input id="cocukParki" type="checkbox" name="cocukParki" class="jojik" value="1">
+    <input id="cocukParki" type="checkbox" name="cocukParki" value="1">
     </button>
   
    
