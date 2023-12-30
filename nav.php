@@ -212,10 +212,13 @@ background-color: #80ffd0;
 </div>
 
 <div class="buttons">
-    
+
+<?php if(!empty($_SESSION['id'])) { ?>
+  <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
         <button>
-        <?php echo $kullanici['cuzdan'] ?> ₺  <i class="fa-solid fa-wallet"></i></i>
+        <?php echo $kullanici['cuzdan'] ?> ₺ <?php } ?> <i class="fa-solid fa-wallet"></i></i>
         </button>
+        
         <div class="dropdown">
         <button class="dropdown-btn">
             <i class="fa-solid fa-user"></i>
