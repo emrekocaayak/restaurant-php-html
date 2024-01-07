@@ -87,10 +87,12 @@
             return;
 
             
-          $cocukParki = isset($_GET['cocukParki']) ? "AND cocuk_parki = 1" : "";
+          $cocukParki = isset($_GET['cocukParki']) ? " AND cocuk_parki = 1" : "";
+          $muzik = isset($_GET['muzik']) ? " AND muzik = 1" : "";
+          $alkol = isset($_GET['alkol']) ? " AND alkol = 1" : "";
           $q = $_GET['q'];
           $resturantlar = $db->query("SELECT * FROM restaurant WHERE isim LIKE '%$q%'");
-          $resturantlar = $db->query("SELECT * FROM restaurant WHERE isim LIKE '%$q%'". $cocukParki);
+          $resturantlar = $db->query("SELECT * FROM restaurant WHERE isim LIKE '%$q%'". $cocukParki . $muzik . $alkol);
         ?>
         <?php if($resturantlar->rowCount() == 0) { ?>
           <p>Aradığınız restoran bulunamadı.</p>

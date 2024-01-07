@@ -123,15 +123,16 @@ width:60%;
     background-color: white;
 }
 .searchbar button{
-  margin-left: 12px;
+  margin-left: 68px;
 }
 .ara {
   border-radius: 24px;
   background-color: #34e0a1;
-  width:96px;
+  width:40px;
   height: 30px;
   margin-left: 100px;
-  text-align: left;
+  text-align: center;
+
  
 .ara:hover{
 background-color: #80ffd0;
@@ -160,18 +161,25 @@ background-color: #80ffd0;
   <div class="searchbar">
     
     <input type="text" name="q" placeholder="Restoran ara..." required >
-    
+    <div class="dropdown">
     <button class="ara">Ara
-    <input id="cocukParki" type="checkbox" name="cocukParki" value="1">
+    <div class="dropdown-content">
+        <table>
+        <tr>
+    <td><label>Çocuk Parkı <td><input id="cocukParki" type="checkbox" name="cocukParki" value="1"></label></tr>
+    <tr>
+    <td><label>Müzik<td><input id="muzik" type="checkbox" name="muzik" value="1"></label></tr>
+    <tr>
+    <td><label>Alkol : <td><input id="alkol" type="checkbox" name="alkol" value="1">   </label></table>
     </button>
-  
+    </div>
    
 </div>
 
     </form>
     <?php if(!empty($_SESSION['id'])) { ?>
     <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-    
+    <a href="rezer.php">Rezervasyonlarım</a>
     
     <?php if($kullanici['tur'] == 'yonetici') { ?>
       <div class="dropdown">

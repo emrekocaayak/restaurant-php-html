@@ -79,6 +79,12 @@
     <div class="form-group"> 
     <label for="cocukPark" >Çocuk Parkı</label>    <input type="checkbox" name="cocukPark" value="1"><br>
     </div>
+    <div class="form-group"> 
+    <label for="alkol" >Alkol</label> <input type="checkbox" name="alkol" id="alkol" value="1"><br>
+    </div>
+    <div class="form-group"> 
+    <label for="muzik" >Müzik</label>   <input type="checkbox" name="muzik" id="muzik" value="1"><br>
+    </div>
     <div class="form-group">
     <label for="adres" >Adres:</label>
     <textarea name="adres" class="form-control" required></textarea> <br>
@@ -99,13 +105,9 @@
         return;
     }
 
-    if(!isset($_POST['cocukPark'])){
-      $cocukParkC=0;
-    }
-    else{
-      $cocukParkC=$_POST['cocukPark'];
-    }
-
+    $cocukParkC = isset($_POST['cocukPark']) ? 1 : 0;
+    $muzik = isset($_POST['muzik']) ? 1 : 0;
+    $alkol = isset($_POST['alkol']) ? 1 : 0;
     $isim = $_POST['isim'];
     $iletisim = $_POST['iletisim'];
     $adres = $_POST['adres'];
@@ -113,4 +115,4 @@
     $fileName = $file['name'];
     $filePath = "./files/".md5(time()).$fileName;
     move_uploaded_file($file['tmp_name'], $filePath);
-    $db->query("INSERT INTO restaurant (isim, iletisim, adres, sahip, foto,cocuk_parki) VALUES ('$isim', '$iletisim', '$adres', {$_SESSION['id']},'$filePath' ,$cocukParkC)");
+     $db->query("INSERT INTO restaurant (isim, iletisim, adres, sahip, foto,cocuk_parki,muzik,alkol) VALUES ('$isim', '$iletisim', '$adres', {$_SESSION['id']},'$filePath' ,'$cocukParkC','$muzik','$alkol')");
