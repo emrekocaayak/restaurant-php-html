@@ -177,7 +177,7 @@ background-color: #80ffd0;
     <?php if(!empty($_SESSION['id'])) { ?>
     <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
     
-    <a href="rezer.php">Rezervasyonlar</a>
+    <a href="rezer.php">Rezervasyonlarım</a>
     <?php if($kullanici['tur'] == 'yonetici') { ?>
       <div class="dropdown">
     
