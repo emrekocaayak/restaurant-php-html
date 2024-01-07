@@ -1,5 +1,4 @@
 <?php 
-  include "nav.php";
   require_once "db.php";
   require_once "session.php";
   
@@ -86,7 +85,7 @@
     </style>
   </head>
   <body>
-  
+    <?php include "nav.php"; ?>
     <div class="container">
     
       <p class="isim">Sayın: <?php echo $user['kullanici_adi'] ?></p>

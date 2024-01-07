@@ -4,6 +4,7 @@
   require_once "session.php";
   
   $menuisimleri = $_COOKIE["menu"];
+  
   $restaurant_id = $_POST['restaurant_id'];
   $gun = $_POST['gun'];
   $islem = $db->query("SELECT * FROM menuler WHERE menu_id IN ($menuisimleri)")->fetchAll();
