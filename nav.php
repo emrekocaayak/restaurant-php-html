@@ -145,15 +145,15 @@
 }
 
 .navbar {
-    display: inline-block;
-    margin-left: auto;
+   
+    margin-left: 200px;
     margin-right: auto;
 }
 
-.buttons {
-    margin-left: 150px;
-    display: inline-block;
-}
+    .buttons {
+        margin-left:150px;
+        display: inline-block;
+    }
 </style>    
 
 
@@ -175,9 +175,9 @@
                 <button class="ara">Ara</button>
                     <div class="dropdown-content">
                         <table>
-                            <tr><td><label>Çocuk Parkı<input id="cocukParki" type="checkbox" name="cocukParki" value="1"></label></td></tr>
-                            <tr><td><label>Müzik<input id="muzik" type="checkbox" name="muzik" value="1"></label></td></tr>
-                            <tr><td><label>Alkol<input id="alkol" type="checkbox" name="alkol" value="1"></label></td></tr>
+                            <tr><td><label>Çocuk Parkı <td><input id="cocukParki" type="checkbox" name="cocukParki" value="1"></label></td></td></tr>
+                            <tr><td><label>Müzik <td><input id="muzik" type="checkbox" name="muzik" value="1"></label></td></td></tr>
+                            <tr><td><label>Alkol <td><input id="alkol" type="checkbox" name="alkol" value="1"></label></td></td></tr>
                         </table>
                     </div>
             </div>
@@ -206,12 +206,17 @@
                     <a href="adminUser.php">Üyeler Listesi</a>
             </div></div>
         <?php } ?>
-        <div class="buttons">
+        
+    <?php } ?>
+    
+    <div class="buttons">
+    <?php if(!empty($_SESSION['id'])) { ?>
+        <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
             <button>
-                <?php echo $kullanici['cuzdan'] ?> ₺
+                <?php echo $kullanici['cuzdan'] ?> ₺<?php } ?>
                 <i class="fa-solid fa-wallet"></i>
             </button>
-
+            
             <div class="dropdown">
                 <button class="dropdown-btn">
                     <i class="fa-solid fa-user"></i>
@@ -227,7 +232,6 @@
                 <button name="cikis"><i class="fa-solid fa-right-from-bracket"></i></button>
             </form>
         </div>
-    <?php } ?>
 </div>
 </header>
 </body>
