@@ -101,12 +101,11 @@
 }
 .header .navbar form {
     display: inline-block;
-    vertical-align: middle;
-}
-
-.searchbar input{
-   margin-left: 2%; 
-    width:60%;
+    vertical-align: middle;}
+    .searchbar input{
+   margin-left: 2%;
+  
+width:79%;
 }
 .searchbar
 {
@@ -124,36 +123,22 @@
     background-color: white;
 }
 .searchbar button{
-  margin-left: 68px;
+  margin-left: 12px;
 }
 .ara {
   border-radius: 24px;
   background-color: #34e0a1;
-  width:40px;
+  width:40Px;
   height: 30px;
   margin-left: 100px;
   text-align: center;
-
+ 
+.ara:hover{
+background-color: #80ffd0;
+  
 }
 
-.ara:hover {
-    background-color: #80ffd0;
-}
 
-.logo {
-    display: inline-block;
-}
-
-.navbar {
-   
-    margin-left: 200px;
-    margin-right: auto;
-}
-
-    .buttons {
-        margin-left:150px;
-        display: inline-block;
-    }
 </style>    
 
 
@@ -162,16 +147,20 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <header class="header"> 
-<a href="anasayfa.php" class="logo">
-    <img src="pics/logoo.png" alt="logo" width="80px">
-</a>
+    <a href="anasayfa.php" class="logo">
+        <img src="pics/logoo.png" alt="logo" width="80px">
+    </a>
 
 <div class="navbar">
-    <a href="anasayfa.php">Ana sayfa</a>
-    <form action="ara.php">
-        <div class="searchbar">
-            <input type="text" name="q" placeholder="Restoran ara..." required>
-            <div class="dropdown">
+  
+  <a href="anasayfa.php">Ana sayfa</a>
+  
+  
+  <form action="ara.php">
+  <div class="searchbar">
+    
+    <input type="text" name="q" placeholder="Restoran ara..." required >
+    <div class="dropdown">
                 <button class="ara">Ara</button>
                     <div class="dropdown-content">
                         <table>
@@ -181,58 +170,83 @@
                         </table>
                     </div>
             </div>
-        </div>
-    </form>
-
-    <?php if(!empty($_SESSION['id'])) { ?>
-        <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-        <a href="rezer.php">Rezervasyonlarım</a>
-        
-        <?php if($kullanici['tur'] == 'yonetici') { ?>
-                <div class="dropdown">
-                <a>Restoran Yonetim</a>
-                <div class="dropdown-content">
-                        <a href="yonetimEkle.php">Restoran Ekle</a>
-                        <a href="yonetimMenu.php">Menü Ekle</a>
-                        <a href="yonetim.php">Rezervasyonlar</a>
-                    </div>
-                </div>
-        <?php } else if($kullanici['tur'] == 'admin') { ?>
-            <div class="dropdown">
-            <a>Admin Yönetim</a> 
-            <div class="dropdown-content">
-            <a href="admin.php">Restoran Ekle</a> 
-                    <a href="adminRest.php">Restoranlar Listesi</a>
-                    <a href="adminUser.php">Üyeler Listesi</a>
-            </div></div>
-        <?php } ?>
-        
-    <?php } ?>
-    
-    <div class="buttons">
-    <?php if(!empty($_SESSION['id'])) { ?>
-        <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-            <button>
-                <?php echo $kullanici['cuzdan'] ?> ₺<?php } ?>
-                <i class="fa-solid fa-wallet"></i>
-            </button>
-            
-            <div class="dropdown">
-                <button class="dropdown-btn">
-                    <i class="fa-solid fa-user"></i>
-                </button>
-
-                <div class="dropdown-content">
-                    <a href="giris.php">Giriş Yap</a>
-                    <a href="kayitol.php">Kayıt Ol</a>
-                </div>
-            </div>
-
-            <form method="post" action="cikis.php">
-                <button name="cikis"><i class="fa-solid fa-right-from-bracket"></i></button>
-            </form>
-        </div>
+   
 </div>
+
+    </form>
+    <?php if(!empty($_SESSION['id'])) { ?>
+    <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
+    
+    <a href="rezer.php">Rezervasyonlar</a>
+    <?php if($kullanici['tur'] == 'yonetici') { ?>
+      <div class="dropdown">
+    
+      <a>Restoran Yonetim</a>
+      <div class="dropdown-content">
+          
+            <a href="yonetimEkle.php">Restoran Ekle</a>
+            <a href="yonetimMenu.php">Menü Ekle</a>
+            <a href="yonetim.php">Rezervasyonlar</a>
+          
+
+  
+        </div>
+      </div>
+    <?php } ?>
+  <?php } else { ?>
+    
+  <?php } ?>
+  <?php if(!empty($_SESSION['id'])) { ?>
+  <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
+    
+    <?php if($kullanici['tur'] == 'admin') { ?> 
+      <div class="dropdown">
+  <a>Admin Yönetim</a> 
+  <div class="dropdown-content">
+  <a href="admin.php">Restoran Ekle</a> 
+          <a href="adminRest.php">Restoranlar Listesi</a>
+          <a href="adminUser.php">Üyeler Listesi</a>
+         
+          
+      
+      </div></div>
+  <?php } ?>
+  <?php } else { ?>
+    
+  <?php } ?>
+</div>
+
+<div class="buttons">
+
+<?php if(!empty($_SESSION['id'])) { ?>
+  <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
+        <button>
+        <?php echo $kullanici['cuzdan'] ?> ₺ <?php } ?> <i class="fa-solid fa-wallet"></i></i>
+        </button>
+        
+        <div class="dropdown">
+        <button class="dropdown-btn">
+            <i class="fa-solid fa-user"></i>
+        </button>
+        
+        <div class="dropdown-content">
+          
+            <a href="giris.php">Giriş Yap</a>
+            <a href="kayitol.php">Kayıt Ol</a>
+          
+
+  
+        </div>
+    </div>
+       
+        <form method="post" action="cikis.php">
+          <button name="cikis">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+         
+          </form>
+        
+    </div>
 </header>
 </body>
 </html>
