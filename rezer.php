@@ -26,24 +26,24 @@
         <div class="container flex mx-auto flex-col gap-4">
         <table class="min-w-full m-4">
             <tr class="font-bold">
-                <th>
+                <td>
                     Sipariş No
-                </th>
-                <th>
+                </td>
+                <td>
                     Menüler 
-                </th>
-                <th>
+                </td>
+                <td>
                     Tutar 
-                </th>
-                <th>
+                </td>
+                <td>
                     Zaman
-                </th>
-                <th>
+                </td>
+                <td>
                     Restoran Adı
-                </th>
-                <th>
+                </td>
+                <td>
                     Durum
-                </th>
+                </td>
             </tr>
             <?php if( $db -> query("SELECT siparis_id,menuler,tutar,zaman,durum,isim FROM siparisler si inner join restaurant re  on si.restaurant_id =re.restaurant_id   Where kullanici_id = '$id'")->fetchColumn() >0) { ?>
                 <?php foreach($rezer as $key) { ?>
