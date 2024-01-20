@@ -220,10 +220,22 @@ background-color: #80ffd0;
 
 <?php if(!empty($_SESSION['id'])) { ?>
   <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-        <button>
-        <?php echo $kullanici['cuzdan'] ?> ₺ <?php } ?> <i class="fa-solid fa-wallet"></i></i>
-        </button>
+  <div class="dropdown">
+  <button>
+        <?php echo $kullanici['cuzdan'] ?> ₺ <?php } ?> 
+</button>
         
+        <button  class="dropdown-btn">
+        <i class="fa fa-wallet"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="cuzdanekle.php">Bakiye Ekle</a>
+      </div>
+  </div>
+       
+       
+       
+       
         <div class="dropdown">
         <button class="dropdown-btn">
             <i class="fa-solid fa-user"></i>
