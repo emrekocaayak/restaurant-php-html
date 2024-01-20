@@ -66,20 +66,21 @@ require_once "db.php";
     <section class="container mt  -5">
     <h2 class="my-4">Bakiye Ekle</h2>
     <div class="form-group">
-    <label for="card">Kart Bilgileri: </label>
-    <input type="text" class="form-control" name="card" placeholder="Kart bilgilerini gir...">
+    <label for="card">Kart Bilgileri </label>
+    <input type="text" class="form-control" name="card" placeholder="Kart bilgilerini gir..." maxlength="16">
     </div>
+    
     <div class="form-group">
-    <label for="date"> Tarih:  </label>
+    <label for="date">Son Kullanma Tarihi  </label>
     <input type="date"  class="form-control" name="date">
     </div>
     <div class="form-group">
-  <label for="ccv">CVV:  </label>
-  <input type="text"  class="form-control" name="cvv" placeholder="CVV şifresi">
+  <label for="ccv">CVV  </label>
+  <input type="text"  class="form-control" name="cvv" placeholder="CVV şifresi" maxlength="3">
     </div>
     <div class="form-group">
   <label for="balance">Miktar </label>
-    <input type="number" class="form-control-file" placeholder="12" name="eklenecek_miktar">
+    <input type="number" class="form-control-file" placeholder="12" name="eklenecek_miktar" >
     </div>
     <div class="form-group">
     <input class="btn btn-primary" type="submit" name="ekle" value="ekle" >
