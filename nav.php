@@ -191,14 +191,13 @@ background-color: #80ffd0;
 
   
         </div>
-      </div>
+      </div>    
     <?php } ?>
   <?php } else { ?>
     
   <?php } ?>
   <?php if(!empty($_SESSION['id'])) { ?>
-  <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-    
+ 
     <?php if($kullanici['tur'] == 'admin') { ?> 
       <div class="dropdown">
   <a>Admin Yönetim</a> 
@@ -211,7 +210,7 @@ background-color: #80ffd0;
       
       </div></div>
   <?php } ?>
-  <?php } else { ?>
+
     
   <?php } ?>
 </div>
@@ -219,19 +218,20 @@ background-color: #80ffd0;
 <div class="buttons">
 
 <?php if(!empty($_SESSION['id'])) { ?>
-  <?php $kullanici = $db->query("SELECT * FROM kullanicilar WHERE id = " . $_SESSION['id'])->fetch() ?>
-  <div class="dropdown">
+    <div class="dropdown">
   <button>
-        <?php echo $kullanici['cuzdan'] ?> ₺ <?php } ?> 
-</button>
-        
-        <button  class="dropdown-btn">
-        <i class="fa fa-wallet"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="cuzdanekle.php">Bakiye Ekle</a>
-      </div>
+    <?php echo $kullanici['cuzdan'] ?> ₺
+  </button>
+  
+    <button class="dropdown-btn">
+      <i class="fa fa-wallet"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="cuzdanekle.php">Bakiye Ekle</a>
+    </div>
   </div>
+  <?php } ?>    
+
        
        
        
