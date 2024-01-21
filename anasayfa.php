@@ -124,81 +124,23 @@ height: 560px;
         .footerbaslik
         {
           
-          font-size: 34px;
+          font-size: 20px;
             text-transform: uppercase;
-            color: white;
+            color: #E7DECC;
             text-align: center;
             position: relative;
-            
-
+            text-transform: none;
+        
         }
         .footer {
   background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
+  padding:30px;
 }
-.animated-text{
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px;
-    text-align: center;
-}
-
-.animated-text span{
-    position: relative;
-}
-
-.animated-text span::before{
-    content: "Emre Kocaayak";
-    color: #e84242;
-    animation: words 20s infinite;
-}
-
-.animated-text span::after{
-    content: "";
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    background-color: black;
-    border-left: 2px solid white;
-    right: -8px;
-    animation: cursor .8s infinite, typing 20s steps(14) infinite;
-}
-
-@keyframes cursor {
-    to{
-        border-left: 2px solid white;
-    }
-}
-
-@keyframes words {
-    0%,20%{
-        content: "Emre Kocaayak";
-    }
-    21%,40%{
-        content: "Azra Akdoğan";
-    }
-    41%,60%{
-        content: "Batın Sucu";
-    }
-    61%,80%{
-        content: "Serhat Türker";
-    }
-    81%,100%{
-        content: "Semih Mutafoğlu";
-    }
-}
-
-@keyframes typing {
-    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-        width: 0;
-    }
-    5%,20%,25%,40%,45%,60%,65%,80%,85%{
-        width: calc(100% + 8px);
-    }
-}
-
+  i.fas.fa-home
+  {
+    margin-top: 10px;
+  }
+ 
     </style>
 </head>
 
@@ -284,12 +226,12 @@ Bazı restoranlardaki yemekleri yurtdışında denediğimle karşılaştırdığ
       </div>
     </section>
     <h1 class="baslik"></h1>
+    
     <section>
    
       <footer class="footer">
-    <h1 class="footerbaslik">Emeği Gecenler</h1>
-    <div class="animated-text">
-           <span></span>
+   <h1 class="footerbaslik">Copyright © 2024 by Emre Kocaayak | All Rights Reserved   <br> <a href="anasayfa.php"><i class="fas fa-home" style="color: #E7DECC;"></i></a></h1>
+   
     </div>
       </footer>
     </section>
