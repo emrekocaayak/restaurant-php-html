@@ -1,4 +1,4 @@
-NOT RESPONSIVE
+!!!!!!NOT RESPONSIVE!!!!!!
 
 ![anasayfa](https://github.com/emrekocaayak/restaurant-php-html/assets/128978572/8041e827-cb0c-4ad1-b9cb-750fe30a99c0)
 ![restoranicerigi](https://github.com/emrekocaayak/restaurant-php-html/assets/128978572/d3fe3487-9561-43df-8977-36244728828c)
